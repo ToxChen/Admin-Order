@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin Order</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="images/favicon.ico" rel="shortcut icon">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link rel="stylesheet" href="stylesheets/all.css">
+  </head>
+  <body>
+    <header id="header">
+      <div class="container">
+        <div class="row">
+          <div class="logo"><a href="#">Shoptime</a></div>
+          <ul class="menu">
+            <li><a href="#" class="active">HOME</a></li>
+            <li><a href="#">ORDERS</a></li>
+            <li><a href="#">PRODUCT</a></li>
+          </ul>
+          <div class="admin"><a href="#">ADMIN</a></div>
+        </div>
+      </div>
+    </header>
+    <section id="main">
+      <div class="container">
+        <div class="row">
+          <div class="info d-flex justify-content-between">
+            <div class="title">OVERVIEW</div>
+            <div class="conditions">
+              <div class="date"><span class="first-date">2018/6/6</span><i class="fas fa-caret-right"></i><span class="last-date">2018/6/13</span></div>
+              <div class="category"><span>Weekly</span><i class="fas fa-caret-down"></i></div>
+            </div>
+          </div>
+          <div class="block-top">
+            <div class="panel">
+              <div class="panel-title"><i class="fas fa-hand-holding-usd"></i><span>TOTAL REVENUE</span></div><span class="revenue-num">54,540</span>
+            </div>
+            <div class="panel">
+              <div class="panel-title"><i class="fas fa-boxes"></i><span>TOTAL COST</span></div><span class="cost-num">12,660</span>
+            </div>
+            <div class="panel">
+              <div class="panel-title"><i class="fas fa-money-check-alt"></i><span>NET INCOME</span></div><span class="income-num">41,880</span>
+            </div>
+          </div>
+          <div class="block-center">
+            <div class="chart">
+              <div id="curve_chart" style="width: 100%; height: 500px"></div>
+            </div>
+          </div>
+          <div class="block-bottom">
+            <div class="panel transaction">
+              <div class="title">Transaction Website</div>
+              <div class="list">
+                <div class="item">
+                  <div class="transaction-name"><i class="fab fa-facebook-square"></i><span>facebook.com</span></div>
+                  <div class="transaction-num"><span>45,836</span></div>
+                  <div class="transaction-ratio"><i class="fas fa-long-arrow-alt-up ratio-up"></i><span>12%</span></div>
+                </div>
+                <div class="item">
+                  <div class="transaction-name"><i class="fab fa-google"></i><span>google.com</span></div>
+                  <div class="transaction-num"><span>23,582</span></div>
+                  <div class="transaction-ratio"><i class="fas fa-long-arrow-alt-up ratio-up"></i><span>6%</span></div>
+                </div>
+                <div class="item">
+                  <div class="transaction-name"><i class="fab fa-facebook-square"></i><span>facebook.com</span></div>
+                  <div class="transaction-num"><span>2,489</span></div>
+                  <div class="transaction-ratio"><i class="fas fa-long-arrow-alt-down ratio-down"></i><span>9%</span></div>
+                </div>
+                <div class="item">
+                  <div class="transaction-name"><i class="fab fa-wordpress"></i><span>wordpress.com</span></div>
+                  <div class="transaction-num"><span>1,057</span></div>
+                  <div class="transaction-ratio"><i class="fas fa-long-arrow-alt-down ratio-down"></i><span>10%</span></div>
+                </div>
+              </div>
+            </div>
+            <div class="panel orders">
+              <div class="title">Latest Orders</div>
+              <div class="list">
+                <div class="item">
+                  <div class="order-info">
+                    <div style="background-image: url('./images/1.jpg')" class="order-img"></div>
+                    <div class="order-product">
+                      <div class="product-name">Vintage T-shirt</div>
+                      <div class="product-date"><i class="fas fa-clock"></i><span class="date">2018/6/13</span><span class="time">13:42</span></div>
+                      <div class="product-buyer"><i class="fas fa-user"></i><span>Belle Willis</span></div>
+                    </div>
+                  </div>
+                  <div class="order-total"><span>total</span><span class="price">3,200</span></div>
+                </div>
+                <div class="item">
+                  <div class="order-info">
+                    <div style="background-image: url('./images/2.jpg')" class="order-img"></div>
+                    <div class="order-product">
+                      <div class="product-name">Vintage T-shirt</div>
+                      <div class="product-date"><i class="fas fa-clock"></i><span class="date">2018/6/13</span><span class="time">13:42</span></div>
+                      <div class="product-buyer"><i class="fas fa-user"></i><span>Belle Willis</span></div>
+                    </div>
+                  </div>
+                  <div class="order-total"><span>total</span><span class="price">2,800</span></div>
+                </div>
+                <div class="item">
+                  <div class="order-info">
+                    <div style="background-image: url('./images/3.jpg')" class="order-img"></div>
+                    <div class="order-product">
+                      <div class="product-name">Vintage T-shirt</div>
+                      <div class="product-date"><i class="fas fa-clock"></i><span class="date">2018/6/13</span><span class="time">13:42</span></div>
+                      <div class="product-buyer"><i class="fas fa-user"></i><span>Belle Willis</span></div>
+                    </div>
+                  </div>
+                  <div class="order-total"><span>total</span><span class="price">1,600</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+      ['Year', 'Sales', 'Expenses'],
+      ['2004',  1000,      400],
+      ['2005',  1170,      460],
+      ['2006',  660,       1120],
+      ['2007',  1030,      540]
+      ]);
+      var options = {
+      title: 'Activity',
+      legend: { position: 'bottom' }
+      };
+      var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+      chart.draw(data, options);
+      }
+      
+    </script>
+    <script src="javascripts/vendor.js"></script>
+    <script src="javascripts/all.js"></script>
+  </body>
+</html>
